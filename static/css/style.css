@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav-item a:hover{
+    background-color: grey;
+    border-radius: 5px;
+}
+.doctors{
+    height: 150px;
+    object-fit: cover;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.login{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.user-login{
+    width: 100%;
+    height: 100vh;
+    position: relative
+}
+
+
+.user-login img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;
+ 
+    
+}
+.user-content{
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width:500PX;
+    gap: 20px;
+    padding: 20px 10px;
+    text-align: center;
+
+ 
+ 
+
+}
+.user-content input{
+    outline: 0;
+    border: 0;
+    text-align: center;
+    position: relative;
+
+}
+.user-content input::after{
+    content:'';
+    width: 75px;
+    height: 3px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(23,124,229);
+}
+
+.login{
+    outline: 0;
+      background: #81bbc9;
+  background: linear-gradient(
+    90deg,
+    rgb(59, 108, 107) 0%,
+    rgb(142, 140, 137) 100%
+  );
+  border: 0;
+  padding: 10px;
+}
+.butn{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100px;
+    margin-inline: auto;
+   
+    
+}
