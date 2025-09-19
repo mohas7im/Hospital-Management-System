@@ -1,69 +1,52 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-  <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-    />
-    <link rel="stylesheet" href="/static/css/style.css" />
-<body>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/login.css">
-</head>
-<body>
-    <section class="user-login">
-    
-        <img src="/static/images/car1.jpg" alt="">
-        <div class="user-content">
-            <h2>Welcome</h2>  
-            <form action="" method="post">
-                {% csrf_token   %}
-                <input type="text" placeholder="Enter your Username"name="username">
-                <input type="password"placeholder="Enter your Password"name="password">
-
-                 <div class="butn">
-                     <button class="login">login</button>
-               
-                </div>
-            </form>
-                <p></p>
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         
-         
-               
-               
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <section class="user-login">
+        
+            <img src="/static/images/car1.jpg" alt="">
+            <div class="user-content">
+                <h2>Welcome</h2>  
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Enter your Username"name="username">
+                    <input type="password"placeholder="Enter your Password"name="password">
 
-                <p>Forget your Password</p>
-         
-        </div>
-    
-    
-     
+                    <div class="butn">
+                        <button class="login">login</button>
+                
+                    </div>
+                </form>
+                    <p></p>
+            
+            
+                
+                
 
-    </section>
-    
-</body>
-</html>
-    
-     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-</body>
-</html>
+                    <p>Forget your Password</p>
+            
+            </div>
+        
+        
+        
+
+        </section>
+        
+    </body>
+   
+        
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+        ></script>
+    </body>
+    </html>

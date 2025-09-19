@@ -1,13 +1,23 @@
 from django.urls import path, include
-from . import views
+from .views import *
 urlpatterns=[
-    path('', views.userlogin,name='login'),
-    path('home', views.index,name='home'),
-    path('about/', views.about,name='about'),
-    path('booking/', views.booking,name='booking'),
-    path('doctors/', views.doctors,name='doctors'),
-    path('contact/', views.contact,name='contact'),
-    path('department/', views.department,name='department'),
+    
+    path('', userlogin,name='login'),
+    path('home/', index,name='home'),
+    path('about/', about,name='about'),
+    path('booking/', booking,name='booking'),
+    path('doctors/', doctors,name='doctors'),
+    path('contact/', contact,name='contact'),
+    path('department/', department,name='department'),
+    path('logout/',user_logout,name='logout'), 
+    path('auth-check/',loginornot),
+    path('dashboard',dashboard)
+   
+
+
+    
+
+    
     
 
     

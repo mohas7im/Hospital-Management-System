@@ -3,45 +3,26 @@ from django.http import HttpResponse
 
 from .models import Department,Doctors
 from .forms import BookingForm
-from django.contrib.auth import authenticate,login as auth_login
+from django.contrib.auth import authenticate,login as auth_login,logout
+from django.contrib.auth.decorators import login_required
 
 
 
-
-
-# Create your views here.
-def index(request):
-    if not request.user and not request.user.is_authenticated:
+def loginornot(request):
+    if not request.user.is_authenticated:
         return redirect('login')
     
 
 
-   
-
-
+@login_required(login_url=loginornot)
+def index(request):
     return render(request, 'index.html')
 
+@login_required(login_url=loginornot)
 def about(request):
-    entries = [
-        {"date": "2025-09-01", "description": "Purchase Office Supplies", "debit": 500, "credit": 0},
-        {"date": "2025-09-02", "description": "Customer Payment", "debit": 0, "credit": 1200},
-        {"date": "2025-09-05", "description": "Electricity Bill", "debit": 800, "credit": 0},
-        {"date": "2025-09-07", "description": "Service Income", "debit": 0, "credit": 2000},
-    ]
-
-    # Calculate totals
-    total_debit = sum(item["debit"] for item in entries)
-    total_credit = sum(item["credit"] for item in entries)
-    balance = total_credit - total_debit   # credit - debit
-
-    context = {
-        "entries": entries,
-        "total_debit": total_debit,
-        "total_credit": total_credit,
-        "balance": balance,
-    }
-    return render(request,'about.html',context)
-
+   
+    return render(request,'about.html')
+@login_required(login_url=loginornot)
 def booking(request):
     
     if request.method=="POST":
@@ -53,17 +34,17 @@ def booking(request):
         'form':form
     }
     return render(request,'booking.html',dict_form)
-
+@login_required(login_url=loginornot)
 def doctors(request):
     dict_doctors={
         'doctors':Doctors.objects.all()
     }
     return render(request,'doctors.html',dict_doctors)  
     
- 
+@login_required(login_url=loginornot)
 def contact(request):
     return render(request,'contact.html')
-
+@login_required(login_url=loginornot)
 def department(request):
     dict_dept={
         'dept':Department.objects.all()
@@ -91,4 +72,13 @@ def userlogin(request):
         
 
     return render(request,'login.html')
-    
+
+def user_logout(request):
+    logout(request)
+    return redirect('login') 
+
+
+
+def dashboard(request):
+    return render(request,'dashboard.html')
+
