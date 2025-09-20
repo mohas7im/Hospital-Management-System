@@ -27,6 +27,7 @@ class Booking(models.Model):
     booked_on=models.DateField(auto_now=True)
 
 
+
 class Userlogin(models.Model):
     username=models.CharField(max_length=50)
     password=models.CharField(max_length=20)

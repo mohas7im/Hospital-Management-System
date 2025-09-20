@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
-from .models import Department,Doctors
+from .models import Department,Doctors,Booking
 from .forms import BookingForm
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
@@ -79,6 +79,21 @@ def user_logout(request):
 
 
 
-def dashboard(request):
-    return render(request,'dashboard.html')
+def dashboardhome(request):
+    return render(request,'dashboardhome.html')
 
+def dashboardpatient(request):
+    return render(request,'dashboardpatient.html')
+
+def dashboardbooking(request):
+    dict_bookingdash={
+        'booking':Booking.objects.all()
+    }
+    return render(request,'dashboardbooking.html',dict_bookingdash)
+
+
+def dashboardexpense(request):
+    return render(request,'dashboardexpense.html')
+
+def dashboardDelete(request,id):
+    pass

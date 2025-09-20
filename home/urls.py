@@ -9,9 +9,18 @@ urlpatterns=[
     path('doctors/', doctors,name='doctors'),
     path('contact/', contact,name='contact'),
     path('department/', department,name='department'),
+
+
     path('logout/',user_logout,name='logout'), 
     path('auth-check/',loginornot),
-    path('dashboard',dashboard)
+
+
+    path('dashboard/',dashboardhome,name='dashboardhome'),
+    path('dashboard/booking',dashboardbooking,name='dashboardbooking'),
+    path('dashboard/patient',dashboardpatient,name='dashboardpatient'),
+    path('dashboard/expense',dashboardexpense,name='dashboardexpense'),
+    path('dashboard/delete/<id>/',dashboardexpense,name='delete-booking'),
+    
    
 
 
