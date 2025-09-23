@@ -16,14 +16,14 @@
   </head>
   <body>
     <section class="dashboard-main">
-      <div class="left-side bg-primary h-100">
+      <div class="left-side bg-primary h-100 ">
         <div class="dashboard-main-content">
-          <div class="dashboard-left">
+          <div class="dashboard-left " >
             <a href="{% url 'dashboardhome' %}">Home<i class="bi bi-arrow-right"></i></a>
             <a href="">Blogs<i class="bi bi-arrow-right"></i></a>
             <a href="">Settings<i class="bi bi-arrow-right"></i></a>
             <a href="">Testimonial<i class="bi bi-arrow-right"></i></a>
-            <a href="">Doctors<i class="bi bi-arrow-right"></i></a>
+            <a href="{% url 'dashboarddoctor' %}">Doctors<i class="bi bi-arrow-right"></i></a>
             <a href="{% url 'dashboardpatient'%}">Patient<i class="bi bi-arrow-right"></i></a>
             <a href="{% url 'dashboardexpense'%}">Expense<i class="bi bi-arrow-right"></i></a>
             <a href="{% url 'dashboardbooking' %}">Booking<i class="bi bi-arrow-right"></i></a>
@@ -33,6 +33,7 @@
       </div>
       <div class="dashboard-right  h-100">
 
+      
        {% block content %}
        
        {% endblock %}

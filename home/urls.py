@@ -19,8 +19,11 @@ urlpatterns=[
     path('dashboard/booking',dashboardbooking,name='dashboardbooking'),
     path('dashboard/patient',dashboardpatient,name='dashboardpatient'),
     path('dashboard/expense',dashboardexpense,name='dashboardexpense'),
-    path('dashboard/delete/<id>/',dashboardexpense,name='delete-booking'),
-    
+    path('dashboard/delete/<id>/',dashboardDelete,name='delete-booking'),
+    path('dashboard/update/<id>/',UpdateBooking,name='update_booking'),
+    path('dashboard/doctor',dashboarddoctor,name='dashboarddoctor'),
+
+        
    
 
 

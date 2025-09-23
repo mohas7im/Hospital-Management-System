@@ -1,21 +1,45 @@
-{% extends 'base.html' %}
-
-{% block title %}
-Booking
-{% endblock %}
+{% extends 'base.html' %} 
+{% block title %} Booking {% endblock %} 
 {% block content%}
 <h1 class="text-center">Make an AppointMent</h1>
 
-<div class="container">
+<div class="container bookingform">
+  <div class="form-inputs">
     <form action="" method="POST">
-        {% csrf_token %}
-    {{ form.as_p }}
-    <button>Submit</button>
-</form>
+      {% csrf_token %}
 
+      <div class="row">
+        <div class="form-item">
+          <label for="">Enter your Name: </label>
+          <input type="text" class="form-control  mt-1" name="name" required/>
+        </div>
+        <div class="form-item col-lg-6">
+          <label for="">Enter your Age: </label>
+          <input type="text" class="form-control  mt-1" name="age" required/>
+        </div>
 
+        <div class="form-item col-lg-6">
+          <label for="">Enter your PhoneNO: </label>
+          <input type="Number" class="form-control  mt-1" name="phone" required/>
+        </div>
+
+        <div class="form-item col-lg-6">
+          <label for="">Doctor Name: </label>
+          <select name="doctor" class="form-control  mt-1" required>
+            {% for d in doctors %}
+            <option value="{{d.id}}">Dr.{{d.doc_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-item col-lg-6">
+          <label for="">Booking Date</label>
+          <input type="date" class="form-control mt-1" name="booking"required />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>
 
-
 {% endblock %}
-

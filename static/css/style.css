@@ -130,8 +130,41 @@
 .dashboard-right{
     width:80%;
     padding:30px;
+    height: 100vh !important;
+    overflow-y: scroll;
 
 }
 .report{
     margin-top: 30px;
+}
+.bookingform{
+
+}
+.form-inputs{
+  padding: 20px;
+
+  background-color: rgb(222, 222, 222);
+  
+  width: 50%;
+  margin-inline:auto;
+
+
+
+
+
+  
+
+}
+.form-item{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.form-inputs form{
+
+}
+.form-item input{
+  outline: 0;
+  border: 0;
 }

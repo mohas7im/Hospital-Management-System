@@ -1,0 +1,89 @@
+{% extends 'dashboardbase.html' %}
+
+{% block content%}
+
+
+<h2>Doctors list</h2>
+
+<div class="doctor-table">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Doctor Name</th>
+      <th scope="col">Doctor specialization</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in doctors %}
+
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{d.doc_name}}</td>
+      <td>{{d.doc_spec}}</td>
+      <td>{{d.dep_name}}</td>
+      <td><img src="{{d.doc_image.url}}" alt="" width="50px"></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+<div class="mod-doctor">
+ 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Doctor
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Doctor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="doctor-item-dash">
+              <label for="">Doctor Name:</label>
+              <input type="text" name="doctorname">
+
+          </div>
+          <div class="doctor-item-dash">
+            <label for="">Doctor-spec</label>
+            <input type="text" name="doctorspec">
+          </div>
+           <div class="doctor-item-dash">
+            <label for="">Department</label>
+           <select name="doctordepartment" id="">
+            {% for d in department %}
+            <option value="{{d.id}}">{{d.dep_name}}</option>
+            {% endfor %}
+           </select>
+           </div>
+              <div class="doctor-item-dash">
+            <label for="">Doctor Profile</label>
+            <input type="file" name="doctorprofile">
+           </div>
+        
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+{% endblock %}
+
+

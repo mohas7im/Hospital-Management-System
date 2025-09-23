@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 from .models import Department,Doctors,Booking
-from .forms import BookingForm
+
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
 
@@ -24,16 +24,31 @@ def about(request):
     return render(request,'about.html')
 @login_required(login_url=loginornot)
 def booking(request):
-    
     if request.method=="POST":
-        form=BookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-    form=BookingForm()
-    dict_form={
-        'form':form
+        name=request.POST.get("name")
+        bookingdate=request.POST.get("booking")
+        age=request.POST.get("age")
+        phoneno=request.POST.get("phone")
+        doctor=request.POST.get("doctor")
+
+        doc_obj=Doctors.objects.get(id=doctor)
+
+
+        Booking.objects.create(
+            p_name=name,
+            p_age=age,
+            booking_date=bookingdate,
+            p_phone=phoneno,
+            doc_name=doc_obj,
+        )
+        return redirect("booking")
+    
+    dict_doctors={
+        'doctors':Doctors.objects.all()
     }
-    return render(request,'booking.html',dict_form)
+    
+   
+    return render(request,'booking.html',dict_doctors)
 @login_required(login_url=loginornot)
 def doctors(request):
     dict_doctors={
@@ -96,4 +111,55 @@ def dashboardexpense(request):
     return render(request,'dashboardexpense.html')
 
 def dashboardDelete(request,id):
-    pass
+    row = Booking.objects.get(id=id)
+    row.delete()
+    return redirect('dashboardbooking')
+
+def UpdateBooking(request,id):
+    newrow=Booking.objects.get(id=id)
+    
+    if request.method == "POST":
+        print("okook")
+        x=request.POST.get('p_name')
+        y=request.POST.get('p_phone')      
+        newrow.p_name=x
+        newrow.p_phone=y
+        newrow.save()
+
+        return redirect('dashboardbooking')
+
+    return render(request,'dashboardbooking.html',{'row':newrow})
+
+
+def dashboarddoctor(request):
+     
+    if request.method=="POST":
+        doctorname=request.POST.get("doctorname")
+        doctorspec=request.POST.get("doctorspec")
+        depname=request.POST.get("doctordepartment")
+        docimage=request.FILES.get("doctorprofile")
+
+        
+        department_obj=Department.objects.get(id=depname)
+
+        Doctors.objects.create(
+            doc_name=doctorname,
+            doc_spec=doctorspec,
+            dep_name=department_obj,
+            doc_image=docimage,
+
+
+        )
+
+        return redirect('dashboarddoctor')
+    
+
+    
+    dict_doctordash={
+        'doctors':Doctors.objects.all(),
+        'department':Department.objects.all()
+    }
+   
+    
+    return render(request,"dashboarddoctor.html",dict_doctordash)
+
