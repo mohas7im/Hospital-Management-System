@@ -134,6 +134,7 @@ def UpdateBooking(request,id):
 def dashboarddoctor(request):
      
     if request.method=="POST":
+        
         doctorname=request.POST.get("doctorname")
         doctorspec=request.POST.get("doctorspec")
         depname=request.POST.get("doctordepartment")
@@ -153,6 +154,9 @@ def dashboarddoctor(request):
 
         return redirect('dashboarddoctor')
     
+   
+        
+    
 
     
     dict_doctordash={
@@ -163,3 +167,13 @@ def dashboarddoctor(request):
     
     return render(request,"dashboarddoctor.html",dict_doctordash)
 
+def dashboarddoctordelete(request,id):
+    
+    row=Doctors.objects.get(id=id)
+    row.delete()
+    return redirect('dashboarddoctor')
+# def dashboarddoctorupdate(request,id):
+#     row=Doctors.objects.get(id=id)
+
+#     if request.method=="POST":
+#         x=

@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ font-family: "Manrope", sans-serif;
 }
 
-.nav-item a:hover {
+.nav-item a:active {
   background-color: grey;
   border-radius: 5px;
 }
@@ -103,27 +106,40 @@
   height: 100% !important;
 }
 
-.left-side {
-  width: 20%;
+.dashboard-main-content{
+  width: 100%;
+  display: flex;
 }
 .dashboard-left {
-    padding-left: 20px;
-    padding-right: 20px;
-  margin-top: 50px;
+  width: 20%;
+  background-color: #f8fbfc;
 
+
+
+}
+.dash-left-logo{
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(218, 218, 218);
+  
+}
+.dash-left-logo img{
+  width: 80px;
 }
 .dashboard-left a {
   display: flex;
-  margin-bottom: 10px;
-  padding: 10px;
+
+  padding-left: 10px;
+  padding-block: 7px;
   outline: 0;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+
   border-radius: 5px;
   text-align: center;
-  justify-content: space-between;
+  color: black;
 }
-.dashboard-left a:hover {
+.dashboard-left a:active {
   background-color: rgb(255, 255, 255);
   color: black;
 }
@@ -132,14 +148,13 @@
     padding:30px;
     height: 100vh !important;
     overflow-y: scroll;
+  
 
 }
 .report{
     margin-top: 30px;
 }
-.bookingform{
 
-}
 .form-inputs{
   padding: 20px;
 
@@ -161,10 +176,59 @@
   flex-direction: column;
   gap: 2px;
 }
-.form-inputs form{
 
-}
 .form-item input{
   outline: 0;
   border: 0;
+}
+
+.dashboard-right-inventory{
+  width: 100%;
+ 
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  
+}
+.dashboard-right-option{
+  padding: 10px;
+}
+.dashboard-right-option a{
+  border: 1px solid black;
+  padding: 5px 10px;
+  outline: 0;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  
+}
+.dashboard-right-content-section{
+
+     
+  
+}
+.d-padding{
+  padding-block: 20px;
+}
+
+/* Dashoboard- left */
+.dashboard-left .dashboard{
+  font-size: 20px;
+
+}
+.dash-left-item{
+  padding: 10px;
+  margin-block: 10px;
+}
+
+.dashboard-link{
+  display: flex;
+}
+.table-button a{
+
+  background-color: rgb(184, 184, 184);
+  padding: 5px;
+  border-radius: 5px;
+  
+
 }

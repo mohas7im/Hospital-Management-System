@@ -11,35 +11,68 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/css/style.css?v=2" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/css/style.css?v=3" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <section class="dashboard-main">
-      <div class="left-side bg-primary h-100 ">
-        <div class="dashboard-main-content">
-          <div class="dashboard-left " >
-            <a href="{% url 'dashboardhome' %}">Home<i class="bi bi-arrow-right"></i></a>
-            <a href="">Blogs<i class="bi bi-arrow-right"></i></a>
-            <a href="">Settings<i class="bi bi-arrow-right"></i></a>
-            <a href="">Testimonial<i class="bi bi-arrow-right"></i></a>
-            <a href="{% url 'dashboarddoctor' %}">Doctors<i class="bi bi-arrow-right"></i></a>
-            <a href="{% url 'dashboardpatient'%}">Patient<i class="bi bi-arrow-right"></i></a>
-            <a href="{% url 'dashboardexpense'%}">Expense<i class="bi bi-arrow-right"></i></a>
-            <a href="{% url 'dashboardbooking' %}">Booking<i class="bi bi-arrow-right"></i></a>
-            <a href="">Logout<i class="bi bi-arrow-right"></i></a>
+      <div class=" dashboard-main-content">
+        <div class="dashboard-left container d-padding">
+          <div class="dash-left-logo">
+            <img src="" alt="logo" />
+          </div>
+
+          <div class="dashboard-link">
+           
+            <a href="{% url 'dashboardhome' %}"
+            class="dashboard">Dashboard</a>
+          </div>
+          <div class="dash-left-item">
+            <h6 class="text-muted">Clinic</h6>
+            <a href="{% url 'dashboarddoctor' %}"
+              >Doctors</a>
+            <a href="{% url 'dashboardpatient'%}"
+              >Patient
+            </a>
+            <a href="{% url 'dashboardexpense'%}"
+              >Expense</a>
+            <a href="{% url 'dashboardbooking' %}"
+              >Booking</a>
+          </div>
+          <div class="dash-left-item">
+            <h6 class="text-muted">Finance</h6>
+            <a href="">Accounts</i></a>
+            <a href="">Sales</i></a>
+            <a href="">Purchase</i></a>
+          </div>
+          <div class="dash-left-item">
+            <h6 class="text-muted">Physical Asset</h6>
+          
+            <a href="">Peripherels</a>
+            <a href="">Testimonial</i></a>
+          </div>
+
+          <a href="">Logout</a>
+        </div>
+
+        <div class="dashboard-right">
+          <div class="dashboard-right-inventory p-3 mb-4 sticky-top bg-white">
+            <div class="dashboard-right-heading">
+              {% block right_heading %} {% endblock %}
+            </div>
+            <div class="dashboard-right-option">
+              {% block right_options %} {% endblock %}
+            </div>
+          </div>
+
+          <div class="dashboard-right-content-section">
+            {% block content %} {% endblock %}
           </div>
         </div>
       </div>
-      <div class="dashboard-right  h-100">
-
-      
-       {% block content %}
-       
-       {% endblock %}
-     
-      </div>
-
     </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
