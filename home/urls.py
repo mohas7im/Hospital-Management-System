@@ -16,13 +16,15 @@ urlpatterns=[
 
 
     path('dashboard/',dashboardhome,name='dashboardhome'),
-    path('dashboard/booking',dashboardbooking,name='dashboardbooking'),
+    path('dashboard/booking/',dashboardbooking,name='dashboardbooking'),
     path('dashboard/patient',dashboardpatient,name='dashboardpatient'),
     path('dashboard/expense',dashboardexpense,name='dashboardexpense'),
     path('dashboard/delete/<id>/',dashboardDelete,name='delete-booking'),
     path('dashboard/update/<id>/',UpdateBooking,name='update_booking'),
     path('dashboard/doctor/',dashboarddoctor,name='dashboarddoctor'),
     path('dashboard/doctor/<id>',dashboarddoctordelete,name='dashboarddoctor_delete'),
+
+    path('patient/',patient,name='patient')
 
         
    

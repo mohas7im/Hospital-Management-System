@@ -139,7 +139,7 @@
   text-align: center;
   color: black;
 }
-.dashboard-left a:active {
+.dashboard-left a:focus {
   background-color: rgb(255, 255, 255);
   color: black;
 }

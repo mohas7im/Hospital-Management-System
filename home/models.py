@@ -26,11 +26,30 @@ class Booking(models.Model):
     doc_name=models.ForeignKey(Doctors,on_delete=models.CASCADE)
     booking_date=models.DateField()
     booked_on=models.DateField(auto_now=True)
+    
 
 
 
 class Userlogin(models.Model):
     username=models.CharField(max_length=50)
     password=models.CharField(max_length=20)
+
+
+class Patient(models.Model):
+
+    pname=models.CharField(max_length=70)
+    page=models.IntegerField(default=0)
+    pphone=models.CharField(max_length=15)
+    paddress=models.CharField(max_length=100)
+    ppin=models.CharField(max_length=20)
+    pcity=models.CharField(max_length=10,blank=True,null=True)
+    pstate=models.CharField(max_length=20,blank=True,null=True)
+    regno=models.TextField(max_length=20,blank=True,null=True)
+
+
+    # def registration(self,*args,**kwargs):
+    #     if not self.regno:
+    #         self.regno=
+
 
 

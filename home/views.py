@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
-from .models import Department,Doctors,Booking
+from .models import Department,Doctors,Booking,Patient
 
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
@@ -173,7 +173,40 @@ def dashboarddoctordelete(request,id):
     row.delete()
     return redirect('dashboarddoctor')
 # def dashboarddoctorupdate(request,id):
-#     row=Doctors.objects.get(id=id)
+#    row=Doctors.objects.get(id=id)
+#    if request.method=="POST":
+#          x=request.POST.get("doctorname")
+#          y=request.POST.get("doctorspec")
+#          z=request.POST.get("doctordepartment")
+#          w=request.POST.get("doctorprofile")
 
-#     if request.method=="POST":
-#         x=
+
+
+def patient(request):
+    if request.method=="POST":
+        name=request.POST.get("name")
+        age=request.POST.get("age")
+        phone=request.POST.get("phoneno")
+        address=request.POST.get("address")
+        pin=request.POST.get("pin")
+        city=request.POST.get("city")
+
+        
+
+        patient=Patient.objects.create(
+            pname=name,
+            page=age,
+            pphone=phone,
+            paddress=address,
+            ppin=pin,
+            pcity=city,
+        )
+
+
+       
+        return redirect('patient')
+    
+   
+    
+
+    return render(request,'patient.html')   

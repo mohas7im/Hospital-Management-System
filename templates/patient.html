@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<section>
+    <div class="patient-main container d-padding">
+        <h2>Patient Form</h2>
+        <form class="row g-3" method="POST">
+            {% csrf_token %}
+  <div class="col-md-6">
+    <label for="" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Age</label>
+    <input type="number" class="form-control" name="age"required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" name="address"required>
+  </div>
+  <div class="col-12">
+    <label  class="form-label">Phone NO</label>
+    <input type="text" class="form-control" name="phoneno"required>
+  </div>
+   <div class="col-md-6">
+    <label for="inputCity" class="form-label">Country</label>
+    <input type="text" class="form-control" id="inputCity" name="city"required>
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">State</label>
+    <input type="text" class="form-control" id="inputCity" name="state"required>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputZip"  name="city"required>
+  </div>
+  
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Pin</label>
+    <input type="text" class="form-control" id="inputZip"  name="pin"required>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+
+    </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+</body>
+
+</html>

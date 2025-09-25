@@ -25,9 +25,10 @@
 
         <div class="form-item col-lg-6">
           <label for="">Doctor Name: </label>
-          <select name="doctor" class="form-control  mt-1" required>
+          <select name="doctor" class="mt-1" required>
             {% for d in doctors %}
             <option value="{{d.id}}">Dr.{{d.doc_name}}</option>
+           
             {% endfor %}
           </select>
         </div>
