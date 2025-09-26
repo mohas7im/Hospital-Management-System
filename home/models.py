@@ -1,6 +1,31 @@
 from django.db import models
+from django.contrib.auth.models import BaseUserManager,
 
 # Create your models here.
+
+class UserAccountManager(BaseUserManager):
+    def create_user(self,username,password=None):
+        user=self.model(
+            username=username,
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+
+
+
+        return user
+    
+    def create_superuser(self,username,password):
+        user=self.create_user(
+            username=username,
+            password=password,
+
+        )
+        permission=UserPermissions()
+
+class UserAccount(models.Model):
+    username=models.CharField(max_length=29,blank=True,null=True)
+    password=models.CharField(max_length=29,blank=True,null=True)
 class Department(models.Model):
     dep_name=models.CharField(max_length=200)
     dep_description=models.TextField()
@@ -44,12 +69,8 @@ class Patient(models.Model):
     ppin=models.CharField(max_length=20)
     pcity=models.CharField(max_length=10,blank=True,null=True)
     pstate=models.CharField(max_length=20,blank=True,null=True)
-    regno=models.TextField(max_length=20,blank=True,null=True)
+   
 
-
-    # def registration(self,*args,**kwargs):
-    #     if not self.regno:
-    #         self.regno=
 
 
 

@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- font-family: "Manrope", sans-serif;
+ font-family: "Poppins", sans-serif;
 }
 
 .nav-item a:active {
@@ -37,64 +37,43 @@
   width: 100%;
   height: 100vh;
   position: relative;
+
 }
 
-.user-login img {
+.user-login video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+      filter: brightness(0.4);
 
   display: block;
+
 }
 .user-content {
   position: absolute;
-  top: 25%;
-  left: 10%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-color: white;
+  top:50%;
+  left: 50%;
+   transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  padding-block: 35px;
+  border-radius: 10px;
+  width: 40%;
+  height:fit-content;
+  
+
+}
+.login-logo img{
+  width: 60px;
+
+}
+.user-content-item{
+  padding-inline: 50px;
   display: flex;
   flex-direction: column;
-  width: 500px;
-  gap: 20px;
-  padding: 20px 10px;
-  text-align: center;
-}
-.user-content input {
-  outline: 0;
-  border: 0;
-  text-align: center;
-  position: relative;
-}
-.user-content input::after {
-  content: "";
-  width: 75px;
-  height: 3px;
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgb(23, 124, 229);
+  justify-content: center;
 }
 
-.login {
-  outline: 0;
-  background: #81bbc9;
-  background: linear-gradient(
-    90deg,
-    rgb(59, 108, 107) 0%,
-    rgb(142, 140, 137) 100%
-  );
-  border: 0;
-  padding: 10px;
-}
-.butn {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100px;
-  margin-inline: auto;
-}
 .dashboard-main {
   width: 100%;
   height: 100vh;
@@ -202,11 +181,7 @@
   border-radius: 5px;
   
 }
-.dashboard-right-content-section{
 
-     
-  
-}
 .d-padding{
   padding-block: 20px;
 }

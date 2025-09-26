@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
-from .models import Department,Doctors,Booking,Patient
+from .models import Department,Doctors,Booking,Patient,UserAccount
 
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
@@ -11,7 +11,32 @@ from django.contrib.auth.decorators import login_required
 def loginornot(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    
+def userlogin(request):
+    if request.user and request.user.is_authenticated:
+        return redirect("home")
+ 
+    if request.method=="POST":
+        username=request.POST.get("username")
+        password=request.POST.get("password")
+
+        UserAccount.objects.create(username=username,password=password,
+        )
+
+        user=authenticate(request,username=username,password=password)
+
+       
+        
+        if user:
+            auth_login(request,user)
+            return redirect('home')  
+
+         
+            
+        else:
+            return HttpResponse("Not an user")
+        
+
+    return render(request,'login.html')    
 
 
 @login_required(login_url=loginornot)
@@ -66,27 +91,7 @@ def department(request):
     }
     return render(request,'department.html',dict_dept)
 
-def userlogin(request):
-    if request.user and request.user.is_authenticated:
-        return redirect("home")
- 
-    if request.method=="POST":
-        username=request.POST.get("username")
-        password=request.POST.get("password")
 
-        user=authenticate(request,username=username,password=password)
-        
-        if user:
-            auth_login(request,user)
-            return redirect('home')  
-
-         
-            
-        else:
-            return HttpResponse("Not an user")
-        
-
-    return render(request,'login.html')
 
 def user_logout(request):
     logout(request)
@@ -98,6 +103,8 @@ def dashboardhome(request):
     return render(request,'dashboardhome.html')
 
 def dashboardpatient(request):
+
+
     return render(request,'dashboardpatient.html')
 
 def dashboardbooking(request):
@@ -210,3 +217,5 @@ def patient(request):
     
 
     return render(request,'patient.html')   
+
+
