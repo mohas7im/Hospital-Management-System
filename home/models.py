@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager,
+from django.contrib.auth.models import BaseUserManager,AbstractBaseUser,PermissionsMixin
 
 # Create your models here.
 
 class UserAccountManager(BaseUserManager):
+
     def create_user(self,username,password=None):
         user=self.model(
             username=username,
@@ -21,7 +22,21 @@ class UserAccountManager(BaseUserManager):
             password=password,
 
         )
-        permission=UserPermissions()
+
+
+        user.save(using=self._db)
+        return user
+    
+class UserAccount(AbstractBaseUser,PermissionsMixin):
+    username=models.CharField(max_length=200,unique=True,blank=True,null=True)
+
+    USERNAME_FIELD='username'
+    
+    objects=UserAccountManager()
+
+   
+
+
 
 class UserAccount(models.Model):
     username=models.CharField(max_length=29,blank=True,null=True)
