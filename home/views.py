@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 from .models import Department,Doctors,Booking,Patient,UserAccount
+from django.contrib import messages
 
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
@@ -10,32 +11,23 @@ from django.contrib.auth.decorators import login_required
 
 def loginornot(request):
     if not request.user.is_authenticated:
+        
         return redirect('login')
 def userlogin(request):
     if request.user and request.user.is_authenticated:
         return redirect("home")
- 
     if request.method=="POST":
         username=request.POST.get("username")
         password=request.POST.get("password")
-
-        UserAccount.objects.create(username=username,password=password,
-        )
-
-        user=authenticate(request,username=username,password=password)
-
-       
-        
+        print(username)
+        print(password) 
+        user=authenticate(username=username,password=password)
         if user:
-            auth_login(request,user)
-            return redirect('home')  
-
-         
-            
+            auth_login(request, user)
+            return redirect('home')
         else:
-            return HttpResponse("Not an user")
-        
-
+            messages.warning(request,"Not an user")
+            return redirect('login')
     return render(request,'login.html')    
 
 
@@ -100,7 +92,11 @@ def user_logout(request):
 
 
 def dashboardhome(request):
-    return render(request,'dashboardhome.html')
+
+    patient={
+        'patientcount':Patient.objects.count()
+    }
+    return render(request,'dashboardhome.html',patient)
 
 def dashboardpatient(request):
 
@@ -208,6 +204,8 @@ def patient(request):
             ppin=pin,
             pcity=city,
         )
+
+        messages.warning(request,"Patient Added")
 
 
        

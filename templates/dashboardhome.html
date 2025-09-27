@@ -1,17 +1,20 @@
 {% extends 'dashboardbase.html' %}
+ {% block right_heading %} 
+ <h2 class="fw-bold">Home</h2>
+ {% endblock %}
 
 {% block content %}
-<h2>Home</h2>
+
 
 <div class="container text-center report">
   <div class="row">
     <div class="col">
       <p>Total Patient</p>
-      <h5>156</h5>
+      <h5>{{patientcount}}</h5>
     </div>
     <div class="col">
       <p>consulation</p>
-      <h5>92</h5>
+      <h5></h5>
     </div>
     <div class="col">
       <p>Procedure</p>

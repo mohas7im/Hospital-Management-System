@@ -1,11 +1,11 @@
 {% extends 'dashboardbase.html' %} {% block right_heading %}
-<h2 class="mb-0">DOCTORS LIST</h2>
-<p class="text-muted mb-0">Add/Manage doctors</p>
+<h2 class="mb-0 dash-heading">DOCTORS LIST</h2>
+<p class="text-muted mb-0 dash-sub-heading">Add/Manage doctors</p>
 
 {% endblock %} {% block right_options %}
 <button
   type="button"
-  class="btn btn-primary"
+  class="btn "
   data-bs-toggle="modal"
   data-bs-target="#exampleModal"
 >
@@ -40,7 +40,7 @@
         {% endif %}
         <td>{{d.doc_name}}</td>
         <td>{{d.doc_spec}}</td>
-        <td>{{d.dep_name}}</td>
+   
 
         <td class="table-button">
           <a type="button" >Update</a>
@@ -49,7 +49,25 @@
       </tr>
       {% endfor %}
     </tbody>
-  </table>
+  </table> 
+  <!-- <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+     {% for d in doctors %}
+    <div class="col-md-4">
+      <img src="{{d.doc_image.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+     
+      <div class="card-body">
+        <h5 class="card-title">{{d.doc_name}}</h5>
+        <p class="card-text">{{d.doc_spec}}</p>
+        <p class="card-text">{{d.dep_name}}</p>
+      
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div> -->
 </div>
 <div class="mod-doctor">
   <!-- Button trigger modal -->
@@ -86,11 +104,14 @@
             </div>
             <div class="doctor-item-dash">
               <label for="">Department</label>
+              {% if department %}
               <select name="doctordepartment" id="">
+
                 {% for d in department %}
               
                 <option value="{{d.id}}">{{d.dep_name}}</option>
                 {% endfor %}
+                {% endif %}
               </select>
             </div>
             <div class="doctor-item-dash">

@@ -6,21 +6,16 @@ from django.contrib.auth.models import BaseUserManager,AbstractBaseUser,Permissi
 class UserAccountManager(BaseUserManager):
 
     def create_user(self,username,password=None):
-        user=self.model(
-            username=username,
-        )
+        user=self.model(username=username,)
         user.set_password(password)
         user.save(using=self._db)
-
-
 
         return user
     
     def create_superuser(self,username,password):
         user=self.create_user(
             username=username,
-            password=password,
-
+            password=password,  
         )
 
 
@@ -31,16 +26,11 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
     username=models.CharField(max_length=200,unique=True,blank=True,null=True)
 
     USERNAME_FIELD='username'
-    
+    REQUIRED_FIELDS = []
+
     objects=UserAccountManager()
 
    
-
-
-
-class UserAccount(models.Model):
-    username=models.CharField(max_length=29,blank=True,null=True)
-    password=models.CharField(max_length=29,blank=True,null=True)
 class Department(models.Model):
     dep_name=models.CharField(max_length=200)
     dep_description=models.TextField()
@@ -51,7 +41,7 @@ class Department(models.Model):
 class Doctors(models.Model):
     doc_name=models.CharField(max_length=255)
     doc_spec=models.CharField(max_length=255)
-    dep_name=models.ForeignKey(Department,on_delete=models.CASCADE)
+    dep_name=models.ForeignKey(Department,on_delete=models.CASCADE,null=True, blank=True)
     doc_image=models.ImageField(upload_to='doctors')
 
     def __str__(self):

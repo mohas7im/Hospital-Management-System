@@ -166,7 +166,7 @@
  
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-bottom: 2px solid #e51d2a;
   
 }
 .dashboard-right-option{
@@ -205,5 +205,17 @@
   padding: 5px;
   border-radius: 5px;
   
+
+}
+.dash-heading{
+  font-size: 20px;
+  font-weight: bold;
+}
+.dash-sub-heading{
+  font-size: 16px;
+}
+.btn{
+  background-color: #e51d2a!important;
+  color: white;
 
 }

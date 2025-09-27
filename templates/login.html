@@ -16,44 +16,72 @@
   </head>
   <body>
     <section class="user-login">
-      <video src="/static/images/0_Surgery_Hospital_3840x2160.mov" autoplay loop muted playsinline></video>
+      <video
+        src="/static/images/0_Surgery_Hospital_3840x2160.mov"
+        autoplay
+        loop
+        muted
+        playsinline
+      ></video>
       <div class="user-content">
-       <div class="user-content-item">
-         <div class="login-logo mb-3 text-center">
-          <img src="/static/images/ilaj Dental Care Logo.png" alt="logo-image" />
-        </div>
-        <div class="login-head text-center">
-          <h2 class="fw-bold mb-0">Login to Hospital</h2>
-          <p class="text-muted">
-            please enter your username and password to login!
-          </p>
-        </div>
-        <div class="login-input">
-            <form action="" method="POST">
-                {% csrf_token %}
-          <div class="login-input-user mb-2">
-            <label for="text" class="form-label" name="username">Username</label>
-            <input
-              type="username"
-              class="form-control"
-              aria-describedby="passwordHelpBlock"
+        <div class="user-content-item">
+          <div class="login-logo mb-3 text-center">
+            <img
+              src="/static/images/ilaj Dental Care Logo.png"
+              alt="logo-image"
             />
           </div>
-          <div class="login-input-user">
-            <label for="inputPassword5" class="form-label" name="password">Password</label>
-            <input
-              type="password"
-              id="inputPassword5"
-              class="form-control"
-              aria-describedby="passwordHelpBlock"
-            />
+          <div class="login-head text-center">
+            <h2 class="fw-bold mb-0">Login to Hospital</h2>
+            <p class="text-muted">
+              please enter your username and password to login!
+            </p>
           </div>
-          <div class="submit-button text-center mt-4">
-            <button type="submit" class="btn btn-danger" style="width: 100%;">Submit</button>
+          <div class="login-input">
+            <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <div class="login-input-user mb-2">
+                <label for="text" class="form-label">Username</label>
+                <input
+                  type="username"
+                  class="form-control"
+                  aria-describedby="passwordHelpBlock"
+                  required
+                  name="username"
+                />
+              </div>
+              <div class="login-input-user">
+                <label for="inputPassword5" class="form-label">Password</label>
+                <input
+                  type="password"
+                  id="inputPassword5"
+                  class="form-control"
+                  aria-describedby="passwordHelpBlock"
+                  required
+                  name="password"
+                />
+              </div>
+              <div class="message mt-2 text-center">
+                  {% if messages %} 
+                  {% for message in messages%}
+                  <p>{{message}}</p>
+                  {% endfor %}
+                  {% endif %}
+                </div>
+              <div class="submit-button text-center mt-4">
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  style="width: 100%"
+                >
+                  Submit
+                </button>
+
+                
+              </div>
+            </form>
           </div>
-          </form>
         </div>
-       </div>
       </div>
     </section>
 
@@ -66,4 +94,3 @@
     ></script>
   </body>
 </html>
- 
